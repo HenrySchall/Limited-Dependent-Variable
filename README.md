@@ -126,3 +126,16 @@ Quanto à regressão Probit, não existe uma interpretação simples dos coefici
 O efeito na probabilidade prevista de uma mudança num regressor pode ser calculado como no Conceito Chave 8.1.
 
 Em R , os modelos Probit podem ser estimados usando a função glm() do pacote stats . Usando a família de argumentos , especificamos que queremos usar uma função de ligação Probit.
+
+> O segundo teste proposto é o Teste de Durbin-Watson, ele é utilizado para detectar a presença de autocorrelação nos resíduos. Autocorrelação ocorre quando os resíduos estão correlacionados entre si, o que pode invalidar a inferência estatística se não for detectada e tratada. A estatística de Durbin-Watson (D) é calculada considerando ei como o resíduo no tempo i e T o número de observações, sendo descrito pela seguinte fórmula:
+
+![Captura de tela 2024-07-05 155301](https://github.com/HenrySchall/Panel-Data/assets/96027335/29d5ae9f-eae4-4619-bc3e-315ac434aaa6)
+
+nterpretação:
+ D ≈ 2: Não há autocorrelação.
+ D < 1.5: Presença de autocorrelação positiva.
+ D > 2.5:Presença de autocorrelação negativa.
+
+estat dwatson
+
+> P > chi2 = 0 -> menor que o nivel de significancia, ou seja, rejeita H0. **A especificação correta é FE**

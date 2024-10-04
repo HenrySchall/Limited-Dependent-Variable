@@ -5,11 +5,11 @@ uma variável dependente categórica (Y = 1 ou 0). Ao contrário de outros model
 
 ### Tipos de Modelos 
 1) Logit
-2) Probit 
-3) Logit Ordenado
-4) Probit Ordenado
-5) Logit Condicional
-6) Logit Misto
+2) Probit
+3) Tobit
+4) Poisson
+5) Logit/Probit Ordenado
+6) Logit/Probit Condicional
 
 ### 1) Logit (Regressão Logística)
 

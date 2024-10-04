@@ -154,6 +154,7 @@ mfx
 ```r
 logistic ins age hisp educyear married retire hhincome hstatusg, robust
 ```
+![Foto 0](https://github.com/user-attachments/assets/91d2fba6-cb3d-470a-950f-296fbf54634a)
 
 - (0.4447 - 1) * 100 = -> hisp
 - (1.7836 - 1) * 100 = -> married

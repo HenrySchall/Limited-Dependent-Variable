@@ -149,6 +149,17 @@ mfx
 
 - Note que Marginal effects after logit nos dada a probabilidade de ser ter o plano de saude no ponto medio de 37,28%
 
+#### Interpretação dos Coeficientes Alternativa (Odds Ratio)
+
+```r
+logistic ins age hisp educyear married retire hhincome hstatusg, robust
+```
+
+- (0.4447 - 1) * 100 = -> hisp
+- (1.7836 - 1) * 100 = -> married
+
+> A chances da pessoa ter um seguro de saude complementar, senddo casada - 55,53% menor do que a mulher solteira
+
 #### Calculando ponto especifico
 
 ```r
@@ -167,7 +178,11 @@ mfx, at(married=1 educyear=8)
 
 - Note que esse perfil de pessoa ter um seguro saude é de 30,07%
 
-#### Comparando modelos
+#### Probabilidade de cada Pessoa ter o seguro saude
+
+
+
+#### Comparando Logit com Modelo de probabilidade linear (MPL)
 
 ```r
 reg ins age hisp educyear married retire hhincome hstatusg, robust
@@ -186,28 +201,5 @@ estimates store logit
 ```
 
 ```r
-estimates table mpl logit probit, b p
-```
-
-* Posso analisar os valores de MPL quantativamente p
-* Age não é sifnificativa a 10% nos três modelos (p-valor maior que o nível de significância, não rejeita H0)
-
-* Conclusao controlado pelos outros fatores à variável age não afeta a probabilidade do indivíduo possuir o plano de saúde privado
-
-* variável hisp é significativa nos três casos (exemplo)
-
-*** EXEMPLO ***
-
-* Anos de estudos (MPL) = a cada ano de estudoa mais a probabilidade de possuir plano de saude cresce .02336863. Para saber em logit e probit eu tenho que tomar a derivada para encontrar a função de densidade acumulada, sendo que ela irá ser para um ponto específico ou posso calcular o efeito parcial médio.
-
-```r
-predict p_mpl
-```
-
-```r
-predict p_logit
-```
-
-```r
-sum ins p_mpl p_logit
+estimates table mpl logit, b p
 ```

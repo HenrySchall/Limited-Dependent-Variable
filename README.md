@@ -127,7 +127,7 @@ vif
 - Se a pessoa for hispânica o logit estimado diminui em -0.8103059 unidades
 - Se a pessoa for casada o logit estimado (variável Y) aumenta em 0.578636 unidades
 
-#### Convertendo para Chances (log-odds)
+##### Convertendo para Chances (log-odds)
 
 - e^(-0.8103059) = 0.4447 -> hisp
 - e^(0.578636) = 1.7836 -> married
@@ -140,16 +140,16 @@ vif
 
 Nesse caso, se a pessoa for hispânica, as chances dela ter um plano de saúde complementar são em média 2.2487 vezes menores, do que se ela não fosse hispânica, controlado pelo outros fatores. Quando os coeficientes tiverem o sinal positivo não é necessário essa inversão. Sendo assim, se a pessoa for casada, as chances dela ter um plano de saúde complementar são em média .7836 vezes maiores, do que se ela não fosse casada, controlado pelo outros fatores.
 
-#### Convertendo para Probabilidades Marginais (Efeito Marginal)
+##### Convertendo para Probabilidades Marginais (Efeito Marginal)
 
 ```r
 mfx
 ```
 ![Foto 5](https://github.com/user-attachments/assets/fb78a993-65ff-44f1-8e74-c6f9cb72e4f5)
 
-- Note que Marginal effects after logit nos dada a probabilidade de ser ter o plano de saude no ponto medio de 37,28%
+- Marginal effects after logit representa a probabilidade de se ter um plano de saúde complementar no ponto médio, ou seja, a probabilidade na média de se ter um plano de saúde complementar é 37,28%, controlado pelos outros fatores
 
-#### Interpretação dos Coeficientes Alternativa (Odds Ratio)
+##### Interpretação dos Coeficientes Alternativa (Odds Ratio)
 
 ```r
 logistic ins age hisp educyear married retire hhincome hstatusg, robust
@@ -159,9 +159,9 @@ logistic ins age hisp educyear married retire hhincome hstatusg, robust
 - (0.4447 - 1) * 100 = -> hisp
 - (1.7836 - 1) * 100 = -> married
 
-> A chances da pessoa ter um seguro de saude complementar, senddo casada - 55,53% menor do que a mulher solteira
+> A chances da pessoa ter um plano de saúde complementar, sendo casada é 78,36% menor do que uma mulher solteira, controlado pelos outros fatores. E a chances da pessoa ter ter um plano de saúde complementar, sendo hispânica é -55,53% menor do que uma pessoa não hispância, controlado pelos outros fatores
 
-#### Calculando ponto especifico
+#### Calculando ponto específico
 
 ```r
 sort educyear
@@ -178,12 +178,13 @@ mfx, at(married=1 educyear=8)
 ```
 ![Foto 6](https://github.com/user-attachments/assets/7d11bbfa-4df2-424b-98a5-811b727d3127)
 
-- Note que esse perfil de pessoa ter um seguro saude é de 30,07%
+- Para esse perfil específico de pessoa, ter um plano de saúde complementar é de 30,07% em média, controlado pelos outros fatores
 
-#### Probabilidade de cada Pessoa ter o seguro saude
-
+```r
+# Probabilidade de cada pessoa ter um plano de saúde complementar
 predict prob, p
 list prob
+```
 
 #### Comparando Logit com Modelo de probabilidade linear (MPL)
 
@@ -208,3 +209,5 @@ estimates store logit
 ```r
 estimates table mpl logit, b p
 ```
+![10](https://github.com/user-attachments/assets/26abd0b7-bfed-4285-af97-0e7500a4a6d3)
+

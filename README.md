@@ -121,15 +121,15 @@ Foto 4
 
 #### Convertendo para Chances (log-odds)
 
-> e^(-0.8103059) = 1.4447 -> hisp
-> 
-> e^(0.578636) = 1.7837 -> married
+- e^(-0.8103059) = 1.4447 -> hisp
+- e^(0.578636) = 1.7837 -> married
 
-> Chances acima de 1 indicam maiores chances de um evento ocorrer e chances menores que 1, indicam menores chances de um evento ocorrer 
+> Chances acima de 1 indicam maiores chances de um evento ocorrer e chances menores que 1, indicam menores chances de um evento ocorrer. Então as chances de a pessoa ter um plano de saúde complementar são maiores, sendo ela hispânica, do que se ela não fosse hispânica. E as chances de a pessoa ter um plano de saúde complementar são maiores, ela sendo casada, do que se ela não fosse casada. Outra forma de interpretar as log-odds é calcular o seu inverso, ou seja:
 
-- Exemplo: As chances de a pessoa ter um plano de saúde complementar são maiores, sendo ela hispânica, do que se ela não fosse hispânica.
+- 1 / e^(-0.8103059) = 0,6921-> hisp
+- 1 / e^(0.578636) = 0.5606 -> married
 
-- Exemplo: As chances de a pessoa ter um plano de saúde complementar são maiores, ela sendo casada, do que se ela não fosse casada.
+> Nesse caso, se a pessoa for hispânica, as chances dela ter um plano de saúde complementar são em média 0,6921 menores, do que se ela não fosse hispânica 
                                                                             
 
 

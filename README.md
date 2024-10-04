@@ -186,4 +186,4 @@ predict prob, p
 list prob
 ```
 
-### 2) Probit (Modelo Probabilidade Linear)
+### 2) Probit (Modelo de Probabilidade Linear)

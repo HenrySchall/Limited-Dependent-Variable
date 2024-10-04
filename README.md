@@ -33,7 +33,7 @@ $z = \beta0 + + \beta1X$
 
 > Realizando essa manipulação matemática se torna possível encontrar a probabilidade prevista (p) para nosso exemplo, que é a prababilidade de passar no teste com base no tempo de estudo.
 
-*colocae grafico 
+![1_Y3bIYkXXB9Ji_17TGqr-nw](https://github.com/user-attachments/assets/abcaa836-701c-4cec-b14a-ddca86e06d58)
 
 Quando os valores de z forem negativos $(z → -∞)$, $e^{(-z)}$ vai tender $a + ∞$, resultando em uma probabilidade próxima de 0.
 
@@ -98,7 +98,7 @@ matrix C = r(C)
 heatplot C
 ```
 
-Foto 3
+![Graph](https://github.com/user-attachments/assets/db55a9d5-adbe-49f9-bc35-33f699f0a1b4)
 
 > Quando a variável explicativa apresentar (*), isso significa que temos uma correlação significativa com o nível de significancia definido. Sendo assimm, podemos concluir que:
 - A variável dependente tem relação significativa com todas as variáveis explicativas 
@@ -180,7 +180,8 @@ mfx, at(married=1 educyear=8)
 
 #### Probabilidade de cada Pessoa ter o seguro saude
 
-
+predict prob, p
+list prob
 
 #### Comparando Logit com Modelo de probabilidade linear (MPL)
 

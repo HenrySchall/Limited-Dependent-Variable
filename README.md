@@ -27,11 +27,11 @@ $log(\frac{p}{1-p}) = \beta0 + \beta1X$
 
 $σ(z) = p = (\frac{1}{1+e^{-x}})$
 
-> No caso da regressão logística, o logit (z) é dado pela equação da combinação linear do intercepto e do coeficiente associado a variável(eis) explicativa(s) escolhida(s). Então temos que z é igual a:
+No caso da regressão logística, o logit (z) é dado pela equação da combinação linear do intercepto e do coeficiente associado a variável(eis) explicativa(s) escolhida(s). Então temos que z é igual a:
 
 $z = \beta0 + + \beta1X$
 
-> Realizando essa manipulação matemática se torna possível encontrar a probabilidade prevista (p) para nosso exemplo, que é a prababilidade de passar no teste com base no tempo de estudo.
+Realizando essa manipulação matemática se torna possível encontrar a probabilidade prevista (p) para nosso exemplo, que é a prababilidade de passar no teste com base no tempo de estudo.
 
 ![1_Y3bIYkXXB9Ji_17TGqr-nw](https://github.com/user-attachments/assets/abcaa836-701c-4cec-b14a-ddca86e06d58)
 

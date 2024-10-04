@@ -81,7 +81,7 @@ logit ins age hisp educyear married retire hhincome hstatusg, robust
 estat class
 # Correctly classified = 62.45%, isso significa que o modelo prever 62.45% das observações corretamente
 ```
-Foto 2
+![Foto 2](https://github.com/user-attachments/assets/a952f663-d08a-45e2-a1ed-e0dee8753b64)
 
 > Ao analisarmos o Pseudo R2, obtivemos o reesultado de 0.0677, isso signifca que 6,77% da variação da variável depdente pode ser explicada pela variáveis explicativas do modelo, um valor relativamente baixo, então por isso análisamos a matriz de correlação das nossas variáveis
 

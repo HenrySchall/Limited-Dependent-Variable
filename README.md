@@ -132,7 +132,7 @@ vif
 - e^(-0.8103059) = 0.4447 -> hisp
 - e^(0.578636) = 1.7836 -> married
 
-> Chances acima de 1 indicam maiores chances de um evento ocorrer e chances menores que 1, indicam menores chances de um evento ocorrer. Então as chances de a pessoa ter um plano de saúde complementar são menores se ela for hispânica, do que se ela não fosse hispânica, controlado pelo outros fatores. E as chances de a pessoa ter um plano de saúde complementar são maiores, sendo ela casada, do que se ela não fosse casada, controlado pelo outros fatores
+> Chances acima de 1 indicam maiores chances de um evento ocorrer (efeito positivo) e chances menores que 1, indicam menores chances de um evento ocorrer (efeito negativo). Então as chances de a pessoa ter um plano de saúde complementar são menores se ela for hispânica, do que se ela não fosse hispânica, controlado pelo outros fatores. E as chances de a pessoa ter um plano de saúde complementar são maiores, sendo ela casada, do que se ela não fosse casada, controlado pelo outros fatores
 
 > Quando os coeficientes tiverem o sinal negativo é comum para facilitar a interpretação dos resultados calcular seu inverso, ou seja: 
 
@@ -156,10 +156,10 @@ logistic ins age hisp educyear married retire hhincome hstatusg, robust
 ```
 ![Foto 0](https://github.com/user-attachments/assets/91d2fba6-cb3d-470a-950f-296fbf54634a)
 
-- (0.4447 - 1) * 100 = -> hisp
-- (1.7836 - 1) * 100 = -> married
+- (0.4447 - 1) * 100 = -> hisp (efeito negativo) 
+- (1.7836 - 1) * 100 = -> married (efeito positivo)
 
-> A chances da pessoa ter um plano de saúde complementar, sendo casada é 78,36% menor do que uma mulher solteira, controlado pelos outros fatores. E a chances da pessoa ter ter um plano de saúde complementar, sendo hispânica é -55,53% menor do que uma pessoa não hispância, controlado pelos outros fatores
+> A chances de uma pessoa ter um plano de saúde complementar, sendo casada é 78,36% maior do que uma mulher solteira, controlado pelos outros fatores. E a chances de uma pessoa ter um plano de saúde complementar, sendo hispânica é 55,53% menor do que uma pessoa não hispância, controlado pelos outros fatores
 
 #### Calculando a probabilidade para um ponto específico
 
@@ -186,7 +186,7 @@ predict prob, p
 list prob
 ```
 
-#### Comparando Logit com Modelo de probabilidade linear (MPL)
+#### Comparando Logit & MPL
 
 ```r
 reg ins age hisp educyear married retire hhincome hstatusg, robust

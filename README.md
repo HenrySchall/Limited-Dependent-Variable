@@ -181,7 +181,7 @@ mfx, at(married=1 educyear=8)
 - Para esse perfil específico de pessoa, ter um plano de saúde complementar é de 30,07% em média, controlado pelos outros fatores
 
 ```r
-# Probabilidade de cada pessoa ter um plano de saúde complementar
+# Probabilidade de cada pessoa ter um plano de saúde complementar (Para toda a amostra)
 predict prob, p
 list prob
 ```

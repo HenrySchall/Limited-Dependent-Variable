@@ -134,7 +134,7 @@ vif
 
 > Chances acima de 1 indicam maiores chances de um evento ocorrer (efeito positivo) e chances menores que 1, indicam menores chances de um evento ocorrer (efeito negativo). Então as chances de a pessoa ter um plano de saúde complementar são menores se ela for hispânica, do que se ela não fosse hispânica, controlado pelo outros fatores. E as chances de a pessoa ter um plano de saúde complementar são maiores, sendo ela casada, do que se ela não fosse casada, controlado pelo outros fatores
 
-> Quando os coeficientes tiverem o sinal negativo é comum para facilitar a interpretação dos resultados calcular seu inverso, ou seja: 
+Quando os coeficientes tiverem o sinal negativo é comum para facilitar a interpretação dos resultados calcular seu inverso, ou seja: 
 
 - 1 / e^(-0.8103059) = 2.2487 -> hisp
 

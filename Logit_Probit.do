@@ -1,3 +1,5 @@
+
+
 logit ins age hisp educyear married retire hhincome hstatusg, robust
 
 Iteration 0:  Log pseudolikelihood = -2139.7712  
@@ -354,6 +356,10 @@ hstatusg*|   .0647795      .01882    3.44   0.001   .027885  .101674   .704616
 ------------------------------------------------------------------------------
 (*) dy/dx is for discrete change of dummy variable from 0 to 1
 
+*Probabilidade de cada pessoa ter um plano de saúde complementar
+predict prob, p
+list prob
+
 reg ins age hisp educyear married retire hhincome hstatusg, robust
 
 Linear regression                               Number of obs     =      3,206
@@ -450,6 +456,4 @@ ins          |
 ----------------------------------------
                              Legend: b/p
 
-predict prob, p
-
-list prob
+                             

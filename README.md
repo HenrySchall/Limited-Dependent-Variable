@@ -97,7 +97,6 @@ ssc install palettes, replace
 matrix C = r(C)
 heatplot C
 ```
-
 ![Graph](https://github.com/user-attachments/assets/db55a9d5-adbe-49f9-bc35-33f699f0a1b4)
 
 > Quando a variável explicativa apresentar (*), isso significa que temos uma correlação significativa com o nível de significancia definido. Sendo assimm, podemos concluir que:
@@ -114,7 +113,7 @@ regress ins age hisp educyear married retire hhincome hstatusg
 ```r
 vif
 ```
-Foto 4 
+![Foto 4](https://github.com/user-attachments/assets/07135eff-8704-4e72-9057-0fedaf5786da)
 
 - VIF < 10: VIF abaixo de 10 indicam que a multicolinearidade não é problemática
 - VIF > 10: VIF maior que 10 sugere alta multicolinearidade

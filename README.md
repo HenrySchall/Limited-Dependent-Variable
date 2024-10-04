@@ -161,7 +161,7 @@ logistic ins age hisp educyear married retire hhincome hstatusg, robust
 
 > A chances da pessoa ter um plano de saúde complementar, sendo casada é 78,36% menor do que uma mulher solteira, controlado pelos outros fatores. E a chances da pessoa ter ter um plano de saúde complementar, sendo hispânica é -55,53% menor do que uma pessoa não hispância, controlado pelos outros fatores
 
-#### Calculando ponto específico
+#### Calculando a probabilidade para um ponto específico
 
 ```r
 sort educyear

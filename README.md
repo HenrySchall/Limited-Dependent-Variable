@@ -148,7 +148,7 @@ mfx
 ```
 ![Foto 5](https://github.com/user-attachments/assets/fb78a993-65ff-44f1-8e74-c6f9cb72e4f5)
 
-- Marginal effects after logit representa a probabilidade de se ter um plano de saúde complementar no ponto médio, ou seja, a probabilidade na média de se ter um plano de saúde complementar é 37,28%, controlado pelos outros fatores
+- Marginal effects after logit representa a probabilidade de se ter um plano de saúde complementar no ponto médio, ou seja, a probabilidade de se ter um plano de saúde complementar em média é 37,28%, controlado pelos outros fatores
 
 ##### Interpretação dos Coeficientes Alternativa (Odds Ratio)
 

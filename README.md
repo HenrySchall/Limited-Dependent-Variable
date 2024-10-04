@@ -69,7 +69,7 @@ Essa propriedade da função permite que interpretemos a saída da função sigm
 Para classificar as probabilidades previstas como passar ou falhar, podemos definir um limite (por exemplo, 0,5). Se a probabilidade prevista estiver acima do limite, classificamos como passar; caso contrário, classificamos como falhar.
 
 ### Exemplo Prático
-> O exemplo foi retirado do livro "*Microeconometrics: Methods and Applications, de Cameron e Trivedi (2010)*". No qual a base de dados é composta por beneficiários do Medicare (programa que fornece cobertura universal de seguro saúde para pessoas com mais de 65 anos ou para pessoas que aderiram ao programa de seguro por invalidez). Nessa base a variável dependete é (ins), que representa as pessoas que adquirem ou não seguro complementar (ins), sendo 1 = Sim e 0 = Não.
+> O exemplo foi retirado do livro "*Microeconometrics: Methods and Applications, de Cameron e Trivedi (2010)*". No qual a base de dados é composta por beneficiários do Medicare (programa que fornece cobertura universal de seguro saúde para pessoas com mais de 65 anos ou para pessoas que aderiram ao programa de seguro por invalidez). Nessa base a variável dependete é (ins), que representa as pessoas que adquirem ou não seguro de saúde complementar (ins), sendo 1 = Sim e 0 = Não.
 
 ```r
 logit ins age hisp educyear married retire hhincome hstatusg, robust
@@ -107,12 +107,38 @@ vif
 ```
 Foto 4 
 
-##### Interpretação dos resultados:
 - VIF < 10: VIF abaixo de 10 indicam que a multicolinearidade não é problemática
 - VIF > 10: VIF maior que 10 sugere alta multicolinearidade
 
 > No exemplo em questão temos que a multicolinearidade não é problemática
 
-#### Interpretação dos Coeficientes 
+#### Interpretação dos Coeficientes
 
-Foto 1
+> "A variação no logit estimado para uma variação unitária da variável explicativa dada"
+
+- Se a pessoa for hispânica o logit estimado diminui em -0.8103059 unidades
+- Se a pessoa for casada o logit estimado (variável Y) aumenta em 0.578636 unidades
+
+#### Convertendo para Chances (log-odds)
+
+> e^(-0.8103059) = 1.4447 -> hisp
+> 
+> e^(0.578636) = 1.7837 -> married
+
+> Chances acima de 1 indicam maiores chances de um evento ocorrer e chances menores que 1, indicam menores chances de um evento ocorrer 
+
+- Exemplo: As chances de a pessoa ter um plano de saúde complementar são maiores, sendo ela hispânica, do que se ela não fosse hispânica.
+
+- Exemplo: As chances de a pessoa ter um plano de saúde complementar são maiores, ela sendo casada, do que se ela não fosse casada.
+                                                                            
+
+
+> σ(1) = 1 / e^(-0.8103059)
+> 
+> ≈ 1 / 1.4447
+>                          
+> ≈ 0.6921
+
+> Isso significa que se a pessoa for hispânica, a probabilidade dela ter um seguro de saúde complementar é em média 69% menor (analisar o sinal do coeficiente), do que se ela não fosse hispânica.
+
+

@@ -1,15 +1,15 @@
-# Modelos Probabilísticos
+# Modelos de Escolha Qualitativa
 
-> Os modelos de escolha qualitativa, também conhecidos como modelos de escolha discreta ou probabilísticos, são usados para modelar decisões em que indivíduos ou entidades escolhem entre um conjunto finito de alternativas, ou seja, temos
+> Os modelos de escolha qualitativa, também conhecidos como modelos de escolha discreta, são usados para modelar decisões em que indivíduos ou entidades escolhem entre um conjunto finito de alternativas, ou seja, temos
 uma variável dependente categórica (Y = 1 ou 0). Ao contrário de outros modelos, nesse caso o objetivo é encontrar a probabilidaddde da ocorrência da variável dependente, ou seja, do evento binário.
 
 ### Tipos de Modelos 
 1) Logit
-2) Probit 
-3) Logit Ordenado
-4) Probit Ordenado
-5) Logit Condicional
-6) Logit Misto
+2) Probit
+3) Tobit
+4) Poisson
+5) Logit/Probit Ordenado
+6) Logit/Probit Condicional
 
 ### 1) Logit (Regressão Logística)
 
@@ -33,7 +33,7 @@ $z = \beta0 + + \beta1X$
 
 > Realizando essa manipulação matemática se torna possível encontrar a probabilidade prevista (p) para nosso exemplo, que é a prababilidade de passar no teste com base no tempo de estudo.
 
-*colocae grafico 
+![1_Y3bIYkXXB9Ji_17TGqr-nw](https://github.com/user-attachments/assets/abcaa836-701c-4cec-b14a-ddca86e06d58)
 
 Quando os valores de z forem negativos $(z → -∞)$, $e^{(-z)}$ vai tender $a + ∞$, resultando em uma probabilidade próxima de 0.
 
@@ -74,20 +74,20 @@ Para classificar as probabilidades previstas como passar ou falhar, podemos defi
 ```r
 logit ins age hisp educyear married retire hhincome hstatusg, robust
 ```
-
-Foto 1
+![Foto 1](https://github.com/user-attachments/assets/7faefb73-f5cd-4af1-9e85-0d140db4f262)
 
 ```r
 estat class
 # Correctly classified = 62.45%, isso significa que o modelo prever 62.45% das observações corretamente
 ```
-Foto 2
+![Foto 2](https://github.com/user-attachments/assets/a952f663-d08a-45e2-a1ed-e0dee8753b64)
 
 > Ao analisarmos o Pseudo R2, obtivemos o reesultado de 0.0677, isso signifca que 6,77% da variação da variável depdente pode ser explicada pela variáveis explicativas do modelo, um valor relativamente baixo, então por isso análisamos a matriz de correlação das nossas variáveis
 
 ```r
 pwcorr ins age hisp educyear married retire hhincome hstatusg, star(.1)
 ```
+![Foto 3](https://github.com/user-attachments/assets/d1ce9928-c8e1-464e-8888-5520428ff234)
 
 ```r
 ssc install heatplot
@@ -97,8 +97,7 @@ ssc install palettes, replace
 matrix C = r(C)
 heatplot C
 ```
-
-Foto 3
+![Graph](https://github.com/user-attachments/assets/db55a9d5-adbe-49f9-bc35-33f699f0a1b4)
 
 > Quando a variável explicativa apresentar (*), isso significa que temos uma correlação significativa com o nível de significancia definido. Sendo assimm, podemos concluir que:
 - A variável dependente tem relação significativa com todas as variáveis explicativas 
@@ -114,7 +113,7 @@ regress ins age hisp educyear married retire hhincome hstatusg
 ```r
 vif
 ```
-Foto 4 
+![Foto 4](https://github.com/user-attachments/assets/07135eff-8704-4e72-9057-0fedaf5786da)
 
 - VIF < 10: VIF abaixo de 10 indicam que a multicolinearidade não é problemática
 - VIF > 10: VIF maior que 10 sugere alta multicolinearidade
@@ -128,12 +127,12 @@ Foto 4
 - Se a pessoa for hispânica o logit estimado diminui em -0.8103059 unidades
 - Se a pessoa for casada o logit estimado (variável Y) aumenta em 0.578636 unidades
 
-#### Convertendo para Chances (log-odds)
+##### Convertendo para Chances (log-odds)
 
 - e^(-0.8103059) = 0.4447 -> hisp
 - e^(0.578636) = 1.7836 -> married
 
-> Chances acima de 1 indicam maiores chances de um evento ocorrer e chances menores que 1, indicam menores chances de um evento ocorrer. Então as chances de a pessoa ter um plano de saúde complementar são menores se ela for hispânica, do que se ela não fosse hispânica, controlado pelo outros fatores. E as chances de a pessoa ter um plano de saúde complementar são maiores, sendo ela casada, do que se ela não fosse casada, controlado pelo outros fatores
+> Chances acima de 1 indicam maiores chances de um evento ocorrer (efeito positivo) e chances menores que 1, indicam menores chances de um evento ocorrer (efeito negativo). Então as chances de a pessoa ter um plano de saúde complementar são menores se ela for hispânica, do que se ela não fosse hispânica, controlado pelo outros fatores. E as chances de a pessoa ter um plano de saúde complementar são maiores, sendo ela casada, do que se ela não fosse casada, controlado pelo outros fatores
 
 > Quando os coeficientes tiverem o sinal negativo é comum para facilitar a interpretação dos resultados calcular seu inverso, ou seja: 
 
@@ -141,26 +140,28 @@ Foto 4
 
 Nesse caso, se a pessoa for hispânica, as chances dela ter um plano de saúde complementar são em média 2.2487 vezes menores, do que se ela não fosse hispânica, controlado pelo outros fatores. Quando os coeficientes tiverem o sinal positivo não é necessário essa inversão. Sendo assim, se a pessoa for casada, as chances dela ter um plano de saúde complementar são em média .7836 vezes maiores, do que se ela não fosse casada, controlado pelo outros fatores.
 
-#### Convertendo para Probabilidades Marginais (Efeito Marginal)
+##### Convertendo para Probabilidades Marginais (Efeito Marginal)
 
 ```r
 mfx
 ```
+![Foto 5](https://github.com/user-attachments/assets/fb78a993-65ff-44f1-8e74-c6f9cb72e4f5)
 
-- Note que Marginal effects after logit nos dada a probabilidade de ser ter o plano de saude no ponto medio de 37,28%
+- Marginal effects after logit representa a probabilidade de se ter um plano de saúde complementar no ponto médio, ou seja, a probabilidade na média de se ter um plano de saúde complementar é 37,28%, controlado pelos outros fatores
 
-#### Interpretação dos Coeficientes Alternativa (Odds Ratio)
+##### Interpretação dos Coeficientes Alternativa (Odds Ratio)
 
 ```r
 logistic ins age hisp educyear married retire hhincome hstatusg, robust
 ```
+![Foto 0](https://github.com/user-attachments/assets/91d2fba6-cb3d-470a-950f-296fbf54634a)
 
-- (0.4447 - 1) * 100 = -> hisp
-- (1.7836 - 1) * 100 = -> married
+- (0.4447 - 1) * 100 = -> hisp (efeito negativo) 
+- (1.7836 - 1) * 100 = -> married (efeito positivo)
 
-> A chances da pessoa ter um seguro de saude complementar, senddo casada - 55,53% menor do que a mulher solteira
+> A chances de uma pessoa ter um plano de saúde complementar, sendo casada é 78,36% maior do que uma mulher solteira, controlado pelos outros fatores. E a chances de uma pessoa ter um plano de saúde complementar, sendo hispânica é 55,53% menor do que uma pessoa não hispância, controlado pelos outros fatores
 
-#### Calculando ponto especifico
+#### Calculando a probabilidade para um ponto específico
 
 ```r
 sort educyear
@@ -175,18 +176,22 @@ by married: sum ins
 ```r
 mfx, at(married=1 educyear=8)
 ```
+![Foto 6](https://github.com/user-attachments/assets/7d11bbfa-4df2-424b-98a5-811b727d3127)
 
-- Note que esse perfil de pessoa ter um seguro saude é de 30,07%
+- Para esse perfil específico de pessoa, ter um plano de saúde complementar é de 30,07% em média, controlado pelos outros fatores
 
-#### Probabilidade de cada Pessoa ter o seguro saude
+```r
+# Probabilidade de cada pessoa ter um plano de saúde complementar
+predict prob, p
+list prob
+```
 
-
-
-#### Comparando Logit com Modelo de probabilidade linear (MPL)
+#### Comparando Logit & MPL
 
 ```r
 reg ins age hisp educyear married retire hhincome hstatusg, robust
 ```
+![Foto 7](https://github.com/user-attachments/assets/a2fd20b2-eef0-4302-8a88-ce8147ea0531)
 
 ```r
 estimates store mpl
@@ -195,6 +200,7 @@ estimates store mpl
 ```r
 logit ins age hisp educyear married retire hhincome hstatusg, robust
 ```
+![Foto 8](https://github.com/user-attachments/assets/24a0db7e-42ba-4561-b2fe-fb35a99f027a)
 
 ```r
 estimates store logit
@@ -203,3 +209,5 @@ estimates store logit
 ```r
 estimates table mpl logit, b p
 ```
+![10](https://github.com/user-attachments/assets/26abd0b7-bfed-4285-af97-0e7500a4a6d3)
+

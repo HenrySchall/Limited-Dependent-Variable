@@ -68,7 +68,7 @@ Exemplo: z = 1:
 Essa propriedade da função permite que interpretemos a saída da função sigmoidal como probabilidades, onde valores próximos de 0 indicam uma baixa probabilidade de ocorrência do evento e valores próximos de 1 indicam uma alta probabilidade de ocorrência do evento.
 Para classificar as probabilidades previstas como passar ou falhar, podemos definir um limite (por exemplo, 0,5). Se a probabilidade prevista estiver acima do limite, classificamos como passar; caso contrário, classificamos como falhar.
 
-### Exemplo 
+### Exemplo Prático
 > O exemplo foi retirado do livro "*Microeconometrics: Methods and Applications, de Cameron e Trivedi (2010)*". No qual a base de dados é composta por beneficiários do Medicare (programa que fornece cobertura universal de seguro saúde para pessoas com mais de 65 anos ou para pessoas que aderiram ao programa de seguro por invalidez). Nessa base a variável dependete é (ins), que representa as pessoas que adquirem ou não seguro complementar (ins), sendo 1 = Sim e 0 = Não.
 
 ```r
@@ -77,13 +77,19 @@ logit ins age hisp educyear married retire hhincome hstatusg, robust
 
 Foto 1
 
+```r
+estat class
+# Correctly classified = 62.45%, isso significa que o modelo prever 62.45% das observações corretamente
+```
+Foto 2
+
 > Ao analisarmos o Pseudo R2, obtivemos o reesultado de 0.0677, isso signifca que 6,77% da variação da variável depdente pode ser explicada pela variáveis explicativas do modelo, um valor relativamente baixo, então por isso análisamos a matriz de correlação das nossas variáveis
 
 ```r
 pwcorr ins age hisp educyear married retire hhincome hstatusg, star(.1)
 ```
 
-Foto 2 
+Foto 3
 
 > Quando a variável explicativa apresentar (*), isso significa que temos uma correlação significativa com o nível de significancia definido. Sendo assimm, podemos concluir que:
 - A variável dependente tem relação significativa com todas as variáveis explicativas 
@@ -99,6 +105,14 @@ regress ins age hisp educyear married retire hhincome hstatusg
 ```r
 vif
 ```
+Foto 4 
+
 ##### Interpretação dos resultados:
-- VIF < 10: Em geral, valores de VIF abaixo de 10 indicam que a multicolinearidade não é problemática.
-- VIF > 10: Um VIF maior que 10 pode sugerir alta multicolinearidade, e você deve investigar mais a fundo.
+- VIF < 10: VIF abaixo de 10 indicam que a multicolinearidade não é problemática
+- VIF > 10: VIF maior que 10 sugere alta multicolinearidade
+
+> No exemplo em questão temos que a multicolinearidade não é problemática
+
+#### Interpretação dos Coeficientes 
+
+Foto 1

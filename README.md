@@ -175,6 +175,7 @@ by married: sum ins
 ```r
 mfx, at(married=1 educyear=8)
 ```
+![Foto 6](https://github.com/user-attachments/assets/7d11bbfa-4df2-424b-98a5-811b727d3127)
 
 - Note que esse perfil de pessoa ter um seguro saude é de 30,07%
 
@@ -188,6 +189,7 @@ list prob
 ```r
 reg ins age hisp educyear married retire hhincome hstatusg, robust
 ```
+![Foto 7](https://github.com/user-attachments/assets/a2fd20b2-eef0-4302-8a88-ce8147ea0531)
 
 ```r
 estimates store mpl
@@ -196,6 +198,7 @@ estimates store mpl
 ```r
 logit ins age hisp educyear married retire hhincome hstatusg, robust
 ```
+![Foto 8](https://github.com/user-attachments/assets/24a0db7e-42ba-4561-b2fe-fb35a99f027a)
 
 ```r
 estimates store logit

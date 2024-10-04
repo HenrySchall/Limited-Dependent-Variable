@@ -161,7 +161,7 @@ logistic ins age hisp educyear married retire hhincome hstatusg, robust
 
 > A chances de uma pessoa ter um plano de saúde complementar, sendo casada é 78,36% maior do que uma mulher solteira, controlado pelos outros fatores. E a chances de uma pessoa ter um plano de saúde complementar, sendo hispânica é 55,53% menor do que uma pessoa não hispância, controlado pelos outros fatores
 
-#### Calculando a probabilidade para um ponto específico
+#### Calculando a Probabilidade para um Ponto Específico
 
 ```r
 sort educyear
@@ -186,28 +186,4 @@ predict prob, p
 list prob
 ```
 
-#### Comparando Logit & MPL
-
-```r
-reg ins age hisp educyear married retire hhincome hstatusg, robust
-```
-![Foto 7](https://github.com/user-attachments/assets/a2fd20b2-eef0-4302-8a88-ce8147ea0531)
-
-```r
-estimates store mpl
-```
-
-```r
-logit ins age hisp educyear married retire hhincome hstatusg, robust
-```
-![Foto 8](https://github.com/user-attachments/assets/24a0db7e-42ba-4561-b2fe-fb35a99f027a)
-
-```r
-estimates store logit
-```
-
-```r
-estimates table mpl logit, b p
-```
-![10](https://github.com/user-attachments/assets/26abd0b7-bfed-4285-af97-0e7500a4a6d3)
-
+### 2) Probit (Modelo Probabilidade Linear)

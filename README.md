@@ -75,7 +75,7 @@ Para classificar as probabilidades previstas como passar ou falhar, podemos defi
 logit ins age hisp educyear married retire hhincome hstatusg, robust
 ```
 
-Foto 1
+![Foto 1](https://github.com/user-attachments/assets/7faefb73-f5cd-4af1-9e85-0d140db4f262)
 
 ```r
 estat class

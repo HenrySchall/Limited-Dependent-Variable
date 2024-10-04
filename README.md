@@ -139,7 +139,7 @@ Quando os coeficientes tiverem o sinal negativo é comum para facilitar a interp
 
 - 1 / e^(-0.8103059) = 2.2487 -> hisp
 
-Nesse caso, se a pessoa for hispânica, as chances dela ter um plano de saúde complementar são em média 2.2487 vezes menores, do que se ela não fosse hispânica, controlado pelo outros fatores. Quando os coeficientes tiverem o sinal positivo não é necessário essa inversão. Sendo assim, se a pessoa for casada, as chances dela ter um plano de saúde complementar são em média .7836 vezes maiores, do que se ela não fosse casada, controlado pelo outros fatores.
+Nesse caso, se a pessoa for hispânica, as chances dela ter um plano de saúde complementar são em média 2.2487 vezes menores, do que se ela não fosse hispânica, controlado pelo outros fatores. Quando os coeficientes tiverem o sinal positivo não é necessário essa inversão. Sendo assim, se a pessoa for casada, as chances dela ter um plano de saúde complementar são em média 1.7836 vezes maiores, do que se ela não fosse casada, controlado pelo outros fatores.
 
 ##### Convertendo para Probabilidades Marginais (Efeito Marginal)
 

@@ -69,6 +69,7 @@ Essa propriedade da função permite que interpretemos a saída da função sigm
 Para classificar as probabilidades previstas como passar ou falhar, podemos definir um limite (por exemplo, 0,5). Se a probabilidade prevista estiver acima do limite, classificamos como passar; caso contrário, classificamos como falhar.
 
 ### Exemplo Prático
+Carregar Base -> Mus14data.DTA
 > O exemplo foi retirado do livro "*Microeconometrics: Methods and Applications, de Cameron e Trivedi (2010)*". No qual a base de dados é composta por beneficiários do Medicare (programa que fornece cobertura universal de seguro saúde para pessoas com mais de 65 anos ou para pessoas que aderiram ao programa de seguro por invalidez). Nessa base a variável dependete é (ins), que representa as pessoas que adquirem ou não seguro de saúde complementar (ins), sendo 1 = Sim e 0 = Não.
 
 ```r

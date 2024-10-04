@@ -74,7 +74,6 @@ Para classificar as probabilidades previstas como passar ou falhar, podemos defi
 ```r
 logit ins age hisp educyear married retire hhincome hstatusg, robust
 ```
-
 ![Foto 1](https://github.com/user-attachments/assets/7faefb73-f5cd-4af1-9e85-0d140db4f262)
 
 ```r
@@ -88,6 +87,7 @@ estat class
 ```r
 pwcorr ins age hisp educyear married retire hhincome hstatusg, star(.1)
 ```
+![Foto 3](https://github.com/user-attachments/assets/d1ce9928-c8e1-464e-8888-5520428ff234)
 
 ```r
 ssc install heatplot

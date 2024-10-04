@@ -89,6 +89,15 @@ Foto 2
 pwcorr ins age hisp educyear married retire hhincome hstatusg, star(.1)
 ```
 
+```r
+ssc install heatplot
+ssc install colrspace, replace	
+ssc install palettes, replace
+
+matrix C = r(C)
+heatplot C
+```
+
 Foto 3
 
 > Quando a variável explicativa apresentar (*), isso significa que temos uma correlação significativa com o nível de significancia definido. Sendo assimm, podemos concluir que:
@@ -121,24 +130,84 @@ Foto 4
 
 #### Convertendo para Chances (log-odds)
 
-- e^(-0.8103059) = 1.4447 -> hisp
-- e^(0.578636) = 1.7837 -> married
+- e^(-0.8103059) = 0.4447 -> hisp
+- e^(0.578636) = 1.7836 -> married
 
-> Chances acima de 1 indicam maiores chances de um evento ocorrer e chances menores que 1, indicam menores chances de um evento ocorrer. Então as chances de a pessoa ter um plano de saúde complementar são maiores, sendo ela hispânica, do que se ela não fosse hispânica. E as chances de a pessoa ter um plano de saúde complementar são maiores, ela sendo casada, do que se ela não fosse casada. Outra forma de interpretar as log-odds é calcular o seu inverso, ou seja:
+> Chances acima de 1 indicam maiores chances de um evento ocorrer e chances menores que 1, indicam menores chances de um evento ocorrer. Então as chances de a pessoa ter um plano de saúde complementar são menores se ela for hispânica, do que se ela não fosse hispânica, controlado pelo outros fatores. E as chances de a pessoa ter um plano de saúde complementar são maiores, sendo ela casada, do que se ela não fosse casada, controlado pelo outros fatores
 
-- 1 / e^(-0.8103059) = 0,6921-> hisp
-- 1 / e^(0.578636) = 0.5606 -> married
+> Quando os coeficientes tiverem o sinal negativo é comum para facilitar a interpretação dos resultados calcular seu inverso, ou seja: 
 
-> Nesse caso, se a pessoa for hispânica, as chances dela ter um plano de saúde complementar são em média 0,6921 menores, do que se ela não fosse hispânica 
-                                                                            
+- 1 / e^(-0.8103059) = 2.2487 -> hisp
 
+Nesse caso, se a pessoa for hispânica, as chances dela ter um plano de saúde complementar são em média 2.2487 vezes menores, do que se ela não fosse hispânica, controlado pelo outros fatores. Quando os coeficientes tiverem o sinal positivo não é necessário essa inversão. Sendo assim, se a pessoa for casada, as chances dela ter um plano de saúde complementar são em média .7836 vezes maiores, do que se ela não fosse casada, controlado pelo outros fatores.
 
-> σ(1) = 1 / e^(-0.8103059)
-> 
-> ≈ 1 / 1.4447
->                          
-> ≈ 0.6921
+#### Convertendo para Probabilidades Marginais (Efeito Marginal)
 
-> Isso significa que se a pessoa for hispânica, a probabilidade dela ter um seguro de saúde complementar é em média 69% menor (analisar o sinal do coeficiente), do que se ela não fosse hispânica.
+```r
+mfx
+```
 
+- Note que Marginal effects after logit nos dada a probabilidade de ser ter o plano de saude no ponto medio de 37,28%
 
+#### Calculando ponto especifico
+
+```r
+sort educyear
+by educyear : sum ins
+```
+
+```r
+sort married
+by married: sum ins
+```
+
+```r
+mfx, at(married=1 educyear=8)
+```
+
+- Note que esse perfil de pessoa ter um seguro saude é de 30,07%
+
+#### Comparando modelos
+
+```r
+reg ins age hisp educyear married retire hhincome hstatusg, robust
+```
+
+```r
+estimates store mpl
+```
+
+```r
+logit ins age hisp educyear married retire hhincome hstatusg, robust
+```
+
+```r
+estimates store logit
+```
+
+```r
+estimates table mpl logit probit, b p
+```
+
+* Posso analisar os valores de MPL quantativamente p
+* Age não é sifnificativa a 10% nos três modelos (p-valor maior que o nível de significância, não rejeita H0)
+
+* Conclusao controlado pelos outros fatores à variável age não afeta a probabilidade do indivíduo possuir o plano de saúde privado
+
+* variável hisp é significativa nos três casos (exemplo)
+
+*** EXEMPLO ***
+
+* Anos de estudos (MPL) = a cada ano de estudoa mais a probabilidade de possuir plano de saude cresce .02336863. Para saber em logit e probit eu tenho que tomar a derivada para encontrar a função de densidade acumulada, sendo que ela irá ser para um ponto específico ou posso calcular o efeito parcial médio.
+
+```r
+predict p_mpl
+```
+
+```r
+predict p_logit
+```
+
+```r
+sum ins p_mpl p_logit
+```

@@ -1,4 +1,4 @@
-# Modelos Probabilísticos
+# Modelos Probabilísticos ou Escolha Qualitativa
 
 > Os modelos de escolha qualitativa, também conhecidos como modelos de escolha discreta ou probabilísticos, são usados para modelar decisões em que indivíduos ou entidades escolhem entre um conjunto finito de alternativas, ou seja, temos
 uma variável dependente categórica (Y = 1 ou 0). Ao contrário de outros modelos, nesse caso o objetivo é encontrar a probabilidaddde da ocorrência da variável dependente, ou seja, do evento binário.
@@ -145,6 +145,7 @@ Nesse caso, se a pessoa for hispânica, as chances dela ter um plano de saúde c
 ```r
 mfx
 ```
+![Foto 5](https://github.com/user-attachments/assets/fb78a993-65ff-44f1-8e74-c6f9cb72e4f5)
 
 - Note que Marginal effects after logit nos dada a probabilidade de ser ter o plano de saude no ponto medio de 37,28%
 

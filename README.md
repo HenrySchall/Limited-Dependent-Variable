@@ -17,7 +17,7 @@ uma variável dependente categórica (Y = 1 ou 0). Ao contrário de outros model
 $log(\frac{p}{1-p}) = \beta0 + \beta1X$
 
 - P representa a probabilidade positiva (Exemplo: passar no teste de motorista)
-- P / (1-P) representa a probabilidade de passar no teste em relação à probabilidade de não teste no exame
+- (1-P) representa a probabilidade de não passar no teste
 - 0 log(P / (1-P)) representa o log-odds (logaritmo da razão de chances) de passar no teste
 - X representa um variável explicativa (Exemplo: tempo de estudo)
 - β0 é o intercepto
